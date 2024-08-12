@@ -1,0 +1,5 @@
+package com.example.Healthcare.Entity;
+
+public class CoverageType {
+
+}

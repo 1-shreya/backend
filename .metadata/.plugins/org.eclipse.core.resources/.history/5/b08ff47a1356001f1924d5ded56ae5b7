@@ -1,0 +1,32 @@
+package com.example.Healthcare.Services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.Healthcare.Entity.CoverageType;
+import com.example.Healthcare.Repository.CoverageTypeRepository;
+
+@Service
+public class CoverageTypeService {
+	@Autowired
+    private CoverageTypeRepository coverageTypeRepository;
+    public List<CoverageType> getAllCoverageTypes() {
+        return coverageTypeRepository.findAll();
+    }
+
+    public Optional<CoverageType> getCoverageTypeById(int id) {
+        return coverageTypeRepository.findById(id);
+    }
+
+    public CoverageType saveCoverageType(CoverageType coverageType) {
+        return coverageTypeRepository.save(coverageType);
+    }
+
+    public void deleteCoverageTypeById(int id) {
+        coverageTypeRepository.deleteById(id);
+    }
+
+}

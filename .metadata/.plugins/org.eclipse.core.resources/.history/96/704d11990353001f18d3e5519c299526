@@ -1,0 +1,12 @@
+package com.example.Healthcare.Entity;
+
+import jakarta.persistence.Id;
+
+public class FamilyMemberUser {
+	
+	@Id
+	private int user_id;
+	private int familymemberid;
+	
+
+}

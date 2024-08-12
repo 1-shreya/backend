@@ -1,0 +1,5 @@
+package com.example.Healthcare.Repository;
+
+public interface FamilyMemberUserRepository {
+
+}

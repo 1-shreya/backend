@@ -1,0 +1,76 @@
+package com.example.Healthcare.Services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.Healthcare.Entity.FamilyMemberUser;
+import com.example.Healthcare.Repository.FamilyMemberUserRepository;
+
+@Service
+public class FamilyMemberUserService implements CrudService<FamilyMemberUser, Integer> {
+	@Autowired
+    private FamilyMemberUserRepository familymemberuserrepository;
+
+	@Override
+	public FamilyMemberUser create(FamilyMemberUser t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FamilyMemberUser> fetchAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FamilyMemberUser fetchById(Integer k) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FamilyMemberUser update(FamilyMemberUser t1, FamilyMemberUser t2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String delete(FamilyMemberUser t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//    @Override
+//    public User create(User user) {
+//        return userRepository.save(user);
+//    }
+//
+//    @Override
+//    public List<User> fetchAll() {
+//        return userRepository.findAll();
+//    }
+//
+//    @Override
+//    public User fetchById(Integer id) {
+//        return userRepository.findById(id)
+//                .orElseThrow(() -> new RuntimeException("User not found with ID: " + id));
+//    }
+//
+//    @Override
+//    public User update(User existingUser, User updatedUser) {
+//        existingUser.setFamilyMemberId(updatedUser.getFamilyMemberId());
+//        return userRepository.save(existingUser);
+//    }
+//
+//    @Override
+//    public String delete(User user) {
+//        userRepository.delete(user);
+//        return "User deleted successfully";
+//    }
+
+ 
+}

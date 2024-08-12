@@ -1,0 +1,106 @@
+package com.example.Healthcare.Entity;
+
+public class Policy {
+	private int id;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private String mobileno;
+	private String password;
+	private String resetPassword;
+	private String usertype;
+	
+	public Policy() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Policy(int id, String email, String firstName, String lastName, String mobileno, String password,
+			String resetPassword, String usertype) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobileno = mobileno;
+		this.password = password;
+		this.resetPassword = resetPassword;
+		this.usertype = usertype;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getMobileno() {
+		return mobileno;
+	}
+
+	public void setMobileno(String mobileno) {
+		this.mobileno = mobileno;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getResetPassword() {
+		return resetPassword;
+	}
+
+	public void setResetPassword(String resetPassword) {
+		this.resetPassword = resetPassword;
+	}
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
+
+	@Override
+	public String toString() {
+		return "Policy [id=" + id + ", email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
+				+ ", mobileno=" + mobileno + ", password=" + password + ", resetPassword=" + resetPassword
+				+ ", usertype=" + usertype + "]";
+	}
+	
+	
+
+	
+	
+
+}

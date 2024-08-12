@@ -1,0 +1,17 @@
+package com.example.Healthcare.Entity;
+
+public class Policy {
+	private int id;
+	private String email;
+	private String firstName;
+	private String lastName;
+	private  int  mobileno;
+	private String password;
+	private String resetPassword;
+	private String usertype;
+	
+
+	
+	
+
+}

@@ -1,0 +1,63 @@
+package com.example.Healthcare.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.Healthcare.Entity.FamilyMemberUser;
+import com.example.Healthcare.Services.FamilyMemberUserService;
+
+@RestController
+@RequestMapping("/api/familymembers")
+public class FamilyMemberUserController {
+	@Autowired
+    private FamilyMemberUserService familyMemberUserService; 
+	 @GetMapping
+	    public ResponseEntity<List<FamilyMemberUserService>> getAllFamilyMembers() {
+	        List<FamilyMemberUser> familyMembers = familyMemberUserService.getAllFamilyMembers();
+	        return new ResponseEntity<>(familyMembers, HttpStatus.OK);
+	    }
+
+	    @GetMapping("/{id}")
+	    public ResponseEntity<FamilyMember> getFamilyMemberById(@PathVariable int id) {
+	        Optional<FamilyMember> familyMember = familyMemberService.getFamilyMemberById(id);
+	        return familyMember.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+	                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+	    }
+
+	    @PostMapping
+	    public ResponseEntity<FamilyMember> createFamilyMember(@RequestBody FamilyMember familyMember) {
+	        FamilyMember savedFamilyMember = familyMemberService.saveFamilyMember(familyMember);
+	        return new ResponseEntity<>(savedFamilyMember, HttpStatus.CREATED);
+	    }
+
+	    @PutMapping("/{id}")
+	    public ResponseEntity<FamilyMember> updateFamilyMember(@PathVariable int id, @RequestBody FamilyMember familyMember) {
+	        Optional<FamilyMember> existingFamilyMember = familyMemberService.getFamilyMemberById(id);
+	        if (existingFamilyMember.isPresent()) {
+	            familyMember.setFamilymemberid(id);
+	            FamilyMember updatedFamilyMember = familyMemberService.saveFamilyMember(familyMember);
+	            return new ResponseEntity<>(updatedFamilyMember, HttpStatus.OK);
+	        } else {
+	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	        }
+	    }
+
+	    @DeleteMapping("/{id}")
+	    public ResponseEntity<HttpStatus> deleteFamilyMember(@PathVariable int id) {
+	        Optional<FamilyMember> familyMember = familyMemberService.getFamilyMemberById(id);
+	        if (familyMember.isPresent()) {
+	            familyMemberService.deleteFamilyMemberById(id);
+	            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+	        } else {
+	            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	        }
+	    }
+
+	
+
+}

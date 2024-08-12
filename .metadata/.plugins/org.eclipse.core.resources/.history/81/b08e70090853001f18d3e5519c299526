@@ -1,0 +1,32 @@
+package com.example.Healthcare.Services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.Healthcare.Entity.FamilyMemberUser;
+import com.example.Healthcare.Repository.FamilyMemberUserRepository;
+
+@Service
+public class FamilyMemberUserService {
+	@Autowired
+    private FamilyMemberUserRepository familyMemberUserRepository;
+
+    public List<FamilyMemberUser> getAllFamilyMembers() {
+        return familyMemberUserRepository.findAll();
+    }
+
+    public Optional<FamilyMemberUser> getFamilyMemberById(int id) {
+        return familyMemberUserRepository.findById(id);
+    }
+
+    public FamilyMemberUser saveFamilyMember(FamilyMemberUser familyMemberUser) {
+        return familyMemberUserRepository.save(familyMemberUser);
+    }
+
+    public void deleteFamilyMemberById(int id) {
+        familyMemberUserRepository.deleteById(id);
+    }
+}
